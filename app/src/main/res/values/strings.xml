@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Smart Delivery</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="label_lock">Lock</string>
+</resources>
