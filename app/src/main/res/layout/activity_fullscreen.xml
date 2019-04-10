@@ -10,8 +10,8 @@
             android:text="@string/label_lock"
             android:layout_width="0dp"
             style="@style/Base.Widget.AppCompat.Button.Colored"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:layout_height="60dp"
+            android:id="@+id/btnLockUnlock"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
@@ -30,11 +30,12 @@
             android:ems="10"
             android:maxLength="4"
             android:textSize="25sp"
-            android:id="@+id/editText" android:layout_marginTop="8dp"
+            android:id="@+id/etPin" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            android:textAlignment="center" android:textStyle="bold" android:textColor="@android:color/white"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton" android:layout_marginStart="8dp"/>
+            android:textAlignment="center" android:textStyle="bold" android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/ivDelete" android:layout_marginStart="8dp"
+            android:singleLine="true" android:enabled="false"/>
     <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -43,8 +44,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/editText"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/button"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etPin"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/btnLockUnlock"
             android:id="@+id/linearLayoutCompat">
 
 
@@ -59,19 +60,19 @@
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content" android:textSize="25sp"/>
+                    android:layout_width="wrap_content" android:textSize="25sp" android:id="@+id/btn1"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="2"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn2"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:text="3"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn3"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent"
                                                       android:layout_height="0dp"
@@ -83,19 +84,19 @@
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content" android:textSize="25sp"/>
+                    android:layout_width="wrap_content" android:textSize="25sp" android:id="@+id/btn4"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:text="5"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn5"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="6"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn6"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -108,19 +109,19 @@
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored" android:text="7"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_width="wrap_content" android:textSize="25sp"/>
+                    android:layout_width="wrap_content" android:textSize="25sp" android:id="@+id/btn7"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="8"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn8"/>
             <androidx.appcompat.widget.AppCompatButton
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:text="9"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn9"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -137,7 +138,7 @@
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="match_parent"
                     android:text="0"
-                    android:layout_weight="1" android:textSize="25sp"/>
+                    android:layout_weight="1" android:textSize="25sp" android:id="@+id/btn0"/>
             <View
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
@@ -149,11 +150,26 @@
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:layout_width="40dp"
             android:layout_height="40dp" app:srcCompat="@android:drawable/ic_input_delete"
-            android:id="@+id/imageButton"
+            android:id="@+id/ivDelete"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editText"
-            app:layout_constraintBottom_toBottomOf="@+id/editText" android:layout_marginEnd="8dp"
-            android:tint="@android:color/darker_gray" android:scaleType="center"/>
+            app:layout_constraintTop_toTopOf="@+id/etPin"
+            app:layout_constraintBottom_toBottomOf="@+id/etPin" android:layout_marginEnd="8dp"
+            android:tint="@android:color/darker_gray"
+            android:scaleType="center"/>
+    <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/ivLockUnlock" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_lock_outline_black_24dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvMessage"/>
+    <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvMessage" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/etPin" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" tools:text="Device is locked.."/>
     <!--<android.inputmethodservice.KeyboardView-->
     <!--android:id="@+id/keyboardView" android:layout_width="match_parent" android:layout_height="wrap_content"-->
     <!--app:layout_constraintEnd_toEndOf="parent"-->
