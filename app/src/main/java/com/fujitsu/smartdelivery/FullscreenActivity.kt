@@ -1,16 +1,17 @@
 package com.fujitsu.smartdelivery
 
-import android.inputmethodservice.Keyboard
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_fullscreen.*
+import org.eclipse.paho.android.service.MqttAndroidClient
+import org.eclipse.paho.client.mqttv3.IMqttActionListener
+import org.eclipse.paho.client.mqttv3.IMqttToken
+import org.eclipse.paho.client.mqttv3.MqttClient
+import org.eclipse.paho.client.mqttv3.MqttException
 
 
 class FullscreenActivity : AppCompatActivity() {
-
-
-    private lateinit var mKeyboard: Keyboard
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,17 +30,29 @@ class FullscreenActivity : AppCompatActivity() {
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
 
 
-        // Create the Keyboard
-        mKeyboard = Keyboard(this, R.xml.keyboard)
+        val clientId = MqttClient.generateClientId()
+        val client = MqttAndroidClient(
+            this.applicationContext, "tcp://broker.hivemq.com:1883",
+            clientId
+        )
 
-        // Lookup the KeyboardView
-        // Attach the keyboard to the view
-        keyboardView.keyboard = mKeyboard
+        try {
+            val token = client.connect()
+            token.actionCallback = object : IMqttActionListener {
+                override fun onSuccess(asyncActionToken: IMqttToken) {
+                    // We are connected
+                    Log.d("MqttClient", "onSuccess")
+                }
 
-        // Do not show the preview balloons
-        //mKeyboardView.setPreviewEnabled(false);
+                override fun onFailure(asyncActionToken: IMqttToken, exception: Throwable) {
+                    // Something went wrong e.g. connection timeout or firewall problems
+                    Log.d("MqttClient", "onFailure")
 
-        // Install the key handler
-//        keyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener)
+                }
+            }
+        } catch (e: MqttException) {
+            e.printStackTrace()
+        }
+
     }
 }
